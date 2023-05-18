@@ -1,0 +1,54 @@
+.workExperience{
+    .heading {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        color: transparent;
+        -webkit-text-stroke: 1px white;
+        position: relative;
+        cursor: pointer;
+        margin-top: 1rem;
+
+        &:hover::after {
+          color: rgb(14, 188, 43);
+          animation: moveText 1s ease-in-out forwards;
+        }
+      }
+
+      .heading::after {
+        content: "Work Experience";
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        // color: pink;
+        width: 0;
+      }
+
+      .verticalTimeLine{
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+}
+
+.icon-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .icons{
+    width: 48px;
+    height: 48px;
+    margin-top: 5px;
+    object-fit: contain;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .icons{
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+}
