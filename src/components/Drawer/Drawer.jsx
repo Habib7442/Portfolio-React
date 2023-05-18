@@ -10,7 +10,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import HomeIcon from "@mui/icons-material/Home";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
-import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
+// import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import RateReviewIcon from "@mui/icons-material/RateReview";
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import { Link } from "react-router-dom";
@@ -59,7 +59,7 @@ export default function SwipeableTemporaryDrawer() {
             </Link>
           </ListItemIcon>
         </ListItem>
-        <ListItem>
+        {/* <ListItem>
           <ListItemIcon>
             <Link to="/contact-form">
               <ContactPhoneIcon className="list-icon mx-2" />
@@ -67,7 +67,7 @@ export default function SwipeableTemporaryDrawer() {
               <span style={{ color: "#8a8a8b" }}>Contact</span>
             </Link>
           </ListItemIcon>
-        </ListItem>
+        </ListItem> */}
         <ListItem>
           <ListItemIcon>
             <Link to="/review-form">

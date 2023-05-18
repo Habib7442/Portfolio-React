@@ -1,16 +1,19 @@
 .card {
   width: 200px;
   height: 52vh;
-  background: url("../../assets/cardimg.jpg"), no-repeat;
-  background-size: cover;
   padding: 10px;
   overflow: scroll;
   
   .cardBody {
-    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-left: 1px solid lightblue;
+    border-bottom: 1px solid lightgray;
+    border-right: 1px solid lightseagreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

@@ -9,28 +9,19 @@ import "./Home.scss";
 import { Link } from "react-router-dom";
 import Git from "../../components/Github/Git";
 import { useEffect, useState } from "react";
-import ProfileCard from "../../components/ProfileCard/ProfileCard";
-import CloseIcon from "@mui/icons-material/Close";
 import WorkExperience from "../../components/WorkExperience/WorkExperience";
 import Tech from "../../components/Tech/Tech";
 import Contact from "../Contact/Contact";
-import mobImg from "../../assets/mobile.png"
-import laptopImg from "../../assets/laptop.png"
-import gitImg from "../../assets/github.png"
+import mobImg from "../../assets/mobile.png";
+import laptopImg from "../../assets/laptop.png";
+import gitImg from "../../assets/github.png";
 import MapChart from "../../components/Maps/Map";
+import { motion } from "framer-motion";
+import { fadeIn, slideIn } from "../../utils/motion";
+import EarthCanvas from "../../components/canvas/Earth";
+import StarsCanvas from "../../components/canvas/Stars";
 
 const Home = () => {
-  const [profile, setProfile] = useState(false);
-
-  const handleClick = () => {
-    document.querySelector(".profile-container").style.zIndex = "-1";
-    setProfile(false);
-  };
-
-  useEffect(() => {
-    document.querySelector(".profile-container").style.zIndex = "999";
-    setProfile(true);
-  }, []);
   return (
     <>
       <div className="home bg-dark">
@@ -38,7 +29,7 @@ const Home = () => {
           <Sidebar />
         </div>
         <div className="center">
-          <div className="profile-container">
+          {/* <div className="profile-container">
             {profile && (
               <div className="profile-section">
                 <ProfileCard />
@@ -47,12 +38,19 @@ const Home = () => {
                 </button>
               </div>
             )}
-          </div>
+          </div> */}
           <section className="first-section">
-            <main id="swup" className="first-section-main transition-fade">
+            <main id="swup" className="first-section-main transition-fade relative z-0">
               <h1 className="heading">Hi, I'm Habib</h1>
               <p className="sub_heading">Front End Developer</p>
             </main>
+            <motion.div
+              variants={slideIn("right", "tween", 0.2, 1)}
+              className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+            >
+              <EarthCanvas />
+            </motion.div>
+            <StarsCanvas />
           </section>
           <section className="second-section">
             <h2 className="proTitle">My Projects</h2>
@@ -62,22 +60,14 @@ const Home = () => {
               </div>
               <div className="projectRight" data-aos="fade-left">
                 <div className="laptop">
-                  <img
-                    className="imgLaptop"
-                    src={laptopImg}
-                    alt=""
-                  />
+                  <img className="imgLaptop" src={laptopImg} alt="" />
                   <div className="laptopScreen">
                     {/* <img className="screenImg" src={import("../../assets/netfliximg.png")} alt="" /> */}
                     <Carousels />
                   </div>
                 </div>
                 <div className="mobile">
-                  <img
-                    className="imgMobile"
-                    src={mobImg}
-                    alt=""
-                  />
+                  <img className="imgMobile" src={mobImg} alt="" />
                   <div className="mobileScreen">
                     {/* <img className="screenImg" src={import("../../assets/netfliximg.png")} alt="" /> */}
                     <Carousels />
@@ -110,11 +100,7 @@ const Home = () => {
             </div>
             <div className="gitImgDiv">
               <a href="https://github.com/Habib7442" target="_blank">
-                <img
-                  className="gitImg"
-                  src={gitImg}
-                  alt=""
-                />
+                <img className="gitImg" src={gitImg} alt="" />
               </a>
             </div>
           </section>
@@ -131,11 +117,13 @@ const Home = () => {
           </section>
           <section className="fourth-section">
             <h2 className="testTitle">Testimonial</h2>
-            <div className="marquee">
-              <div className="review d-flex flex-wrap" data-aos="flip-down">
-                <Review />
-              </div>
-            </div>
+            <motion.div
+              variants={fadeIn("", "spring", 0.2, 1)}
+              className="review d-flex flex-wrap rounded-3xl xs:w-[320px] w-full"
+              data-aos="flip-down"
+            >
+              <Review />
+            </motion.div>
 
             <div className="linkToProject">
               <Link to="/all-reviews">

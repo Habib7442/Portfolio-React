@@ -62,7 +62,7 @@ const ReviewComponent = (props) => {
       </Modal>
       <div className="reviewComponent">
         <a id="card" onClick={modalHandler}>
-          <Card className="cardBack">
+          <Card className="cardBack" style={{background: "none", color: "whitesmoke"}}>
             <Card.Body className="cardBody">
               {props.review.length > 30 && (
                 <Card.Text style={{ textAlign: "center",cursor: "pointer" }}>
@@ -80,6 +80,7 @@ const ReviewComponent = (props) => {
               </Card.Text>
               <Card.Text style={{ textAlign: "center" }}>
                 <Card.Img
+                className="img"
                   style={{
                     width: "70px",
                     height: "70px",

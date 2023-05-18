@@ -23,10 +23,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
   },
-  {
-    path: "/contact-form",
-    element: <Contact />,
-  },
+  // {
+  //   path: "/contact-form",
+  //   element: <Contact />,
+  // },
   {
     path: "/review-form",
     element: <ReviewForm db={db} />,

@@ -40,6 +40,7 @@ a{
     .first-section {
       height: 420px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
 
@@ -118,6 +119,7 @@ a{
       .proTitle {
         font-size: 40px;
         text-align: center;
+        margin-top: 2rem;
           font-weight: bold;
           color: transparent;
           -webkit-text-stroke: 1px white;
@@ -208,7 +210,7 @@ a{
       .techTitle {
         font-size: 40px;
         text-align: center;
-        margin-top: 10px;
+        margin-top: 2rem;
           font-weight: bold;
           color: transparent;
           -webkit-text-stroke: 1px white;
@@ -411,7 +413,7 @@ a{
       .gitTitle {
         font-size: 40px;
         text-align: center;
-        margin: 1.5rem;
+        margin: 2.5rem;
           font-weight: bold;
           color: transparent;
           -webkit-text-stroke: 1px white;
@@ -451,7 +453,7 @@ a{
       .contactTitle {
         font-size: 40px;
         text-align: center;
-        margin: 1.5rem;
+        margin: 2rem;
           font-weight: bold;
           color: transparent;
           -webkit-text-stroke: 1px white;
@@ -491,10 +493,30 @@ a{
       width: 100%;
 
       .testTitle {
-        color: lightgray;
-        font-family: "Source Code Pro", monospace;
+        font-size: 40px;
         text-align: center;
-        margin-top: 4rem;
+        margin: 2rem;
+          font-weight: bold;
+          color: transparent;
+          -webkit-text-stroke: 1px white;
+          position: relative;
+          cursor: pointer;
+
+          &:hover::after {
+            color: rgb(197, 181, 247);
+            animation: moveText 1s ease-in-out forwards;
+          }
+      }
+
+      .testTitle::after {
+        content: "Testimonial";
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        // color: pink;
+        width: 0;
       }
       .marquee {
         &:hover {
@@ -617,10 +639,11 @@ ul {
 
     .fourth-section {
       .review {
+        width: 100%;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
       }
     }
   }
