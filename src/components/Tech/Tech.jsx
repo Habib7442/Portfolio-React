@@ -1,4 +1,3 @@
-import React from "react";
 import { technologies } from "../../constants";
 import BallCanvas from "../canvas/Ball";
 

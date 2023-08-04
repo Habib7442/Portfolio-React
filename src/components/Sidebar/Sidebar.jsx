@@ -10,6 +10,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import DownloadIcon from "@mui/icons-material/Download";
 import EmailIcon from '@mui/icons-material/Email';
 import avatarImage from "../../assets/avatar.jpg";
+import resume from "../../assets/Habibresume.pdf";
 const Sidebar = () => {
   const percentage_1 = 90;
   const percentage_2 = 95;
@@ -80,7 +81,7 @@ const Sidebar = () => {
         <div className="cv">
           <DownloadIcon />
           <span>
-            <a href={import("../../assets/resume.pdf")} target="_blank" rel="noreferrer" download>
+            <a href={resume} target="_blank" rel="noreferrer" download>
               Download CV
             </a>
           </span>

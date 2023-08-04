@@ -490,6 +490,7 @@ a{
      
     }
     .fourth-section {
+      
       width: 100%;
 
       .testTitle {
@@ -623,7 +624,7 @@ ul {
 
     .git-section {
       .gitTitle{
-        font-size: 25px !important;
+        font-size: 20px !important;
       }
       .gitDiv {
         display: none;
@@ -633,6 +634,10 @@ ul {
     .contact-section{
       .inner-div{
         flex-direction: column;
+
+        .right_div{
+          display: none;
+        }
        
       }
     }
@@ -640,10 +645,6 @@ ul {
     .fourth-section {
       .review {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
       }
     }
   }

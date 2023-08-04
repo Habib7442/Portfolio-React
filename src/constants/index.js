@@ -2,7 +2,7 @@ import{
   reactjs,
   cdac,
   unschool,
-  htmlicon,
+  html,
   css,
   javascript,
   threejs,
@@ -11,7 +11,12 @@ import{
   mongodb,
   nextjs,
   bootstrap,
-  firebase
+  firebase,
+  youtube,
+  netflix,
+  blog,
+  portfolio,
+  ecommerce
 } from "../assets"
   
   export const navLinks = [
@@ -54,7 +59,7 @@ import{
   const technologies = [
     {
       name: "HTML 5",
-      icon: htmlicon,
+      icon: html,
     },
     {
       name: "CSS 3",
@@ -172,6 +177,81 @@ import{
     //   ],
     // },
   ];
+  const projects = [
+    {
+      title: "QuickPicks (Ecommerce Website)",
+      techstack : "React Js, Appwrite, Tailwind CSS, Material UI",
+      icon: ecommerce,
+      iconBg: "#383E56",
+      date: "Jan-2023",
+      points: [
+        "Developed an impressive and user-friendly e-commerce website using React.js, showcasing strong frontend development skills.",
+        "Implemented a robust backend using Node.js and Appwrite,demonstrating proficiency in backend development and API integration.",
+        "Utilized Redux for state management, ensuring efficient data flow and seamless user interactions.",
+        "Implemented a user-friendly shopping cart system, allowing customers to easily add and manage their selected items.",
+        "Deployment link : https://quickpicks123.netlify.app/",
+        "GitHub link : https://github.com/Habib7442/QuickPicks"
+      ],
+    },
+    {
+      title: "The Digital Diary (Blog Website)",
+      techstack : "React Js, Firebase, Sass, Tilt.js",
+      icon: blog,
+      iconBg: "#383E56",
+      date: "Jan-2023",
+      points: [
+        "Developed a dynamic blog website using React JS for the frontend and Firebase for the backend.",
+        "Allowed users to like, delete, and update their own posts.",
+        "Used Sass for responsive design and Tilt.js for 3D animation effects to enhance the user experience on multiple devices and present the content dynamically",
+        "Deployment link : https://the-digital-diary.web.app/",
+        "GitHub link : https://github.com/Habib7442/the-digital-diary"
+      ],
+    },
+    {
+      title: "Youtube 2.0 (Youtube Clone)",
+      techstack : "React Js, Material UI, Youtube API",
+      icon: youtube,
+      iconBg: "#E6DEDD",
+      date: "Jan-2023",
+      points: [
+        "Created a YouTube clone using React.js and Material-UI.",
+        "Integrated with external APIs to retrieve and display data on the front-end.",
+        "Integrated with external APIs to retrieve and display data on the front-end.",
+        "Deployment link : https://youtube-habib.netlify.app/",
+        "GitHub link : https://github.com/Habib7442/Youtube-2.0"
+      ],
+    },
+    {
+      title: "Personal Portfolio",
+      techstack : "React Js, Scss, Tailwind CSS, Three.js, Firebase",
+      icon: portfolio,
+      iconBg: "#E6DEDD",
+      date: "Nov-2022",
+      points: [
+        "Created a fully responsive portfolio website using the React js",
+        "Improved front-end visuality with Scss and Tailwind CSS",
+        "Used Three.js to create a 3D animation effect",
+        "Used Firebase for and storing data",
+        "Deployment link : https://habibportfolio123.netlify.app/",
+        "GitHub link : https://github.com/Habib7442/React-Portfolio"
+      ],
+    },
+    {
+      title: "Netflix Clone",
+      techstack : "React Js, Scss, Tailwind CSS, Three.js",
+      icon: netflix,
+      iconBg: "#E6DEDD",
+      date: "Oct-2022",
+      points: [
+        "Created a replica of Netflix using React JS, Bootstrap, and Material UI. ",
+        "Designed an engaging and interactive front-end.",
+        "Used Firebase for secure user registration and login functionality .",
+        "Deployment link : https://netflix-clone-224.netlify.app/",
+        "Deployment link : https://netflix-clone-224.netlify.app/"
+      ],
+    },
+    
+  ];
   
   const testimonials = [
     {
@@ -200,70 +280,70 @@ import{
     },
   ];
   
-  const projects = [
-    {
-      name: "Car Rent",
-      description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-      tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "mongodb",
-          color: "green-text-gradient",
-        },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
-      ],
-      // image: carrent,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Job IT",
-      description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-      tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "restapi",
-          color: "green-text-gradient",
-        },
-        {
-          name: "scss",
-          color: "pink-text-gradient",
-        },
-      ],
-      // image: jobit,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Trip Guide",
-      description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-      tags: [
-        {
-          name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "supabase",
-          color: "green-text-gradient",
-        },
-        {
-          name: "css",
-          color: "pink-text-gradient",
-        },
-      ],
-      // image: tripguide,
-      source_code_link: "https://github.com/",
-    },
-  ];
+  // const projects = [
+  //   {
+  //     name: "Car Rent",
+  //     description:
+  //       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+  //     tags: [
+  //       {
+  //         name: "react",
+  //         color: "blue-text-gradient",
+  //       },
+  //       {
+  //         name: "mongodb",
+  //         color: "green-text-gradient",
+  //       },
+  //       {
+  //         name: "tailwind",
+  //         color: "pink-text-gradient",
+  //       },
+  //     ],
+  //     // image: carrent,
+  //     source_code_link: "https://github.com/",
+  //   },
+  //   {
+  //     name: "Job IT",
+  //     description:
+  //       "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+  //     tags: [
+  //       {
+  //         name: "react",
+  //         color: "blue-text-gradient",
+  //       },
+  //       {
+  //         name: "restapi",
+  //         color: "green-text-gradient",
+  //       },
+  //       {
+  //         name: "scss",
+  //         color: "pink-text-gradient",
+  //       },
+  //     ],
+  //     // image: jobit,
+  //     source_code_link: "https://github.com/",
+  //   },
+  //   {
+  //     name: "Trip Guide",
+  //     description:
+  //       "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+  //     tags: [
+  //       {
+  //         name: "nextjs",
+  //         color: "blue-text-gradient",
+  //       },
+  //       {
+  //         name: "supabase",
+  //         color: "green-text-gradient",
+  //       },
+  //       {
+  //         name: "css",
+  //         color: "pink-text-gradient",
+  //       },
+  //     ],
+  //     // image: tripguide,
+  //     source_code_link: "https://github.com/",
+  //   },
+  // ];
   
   export { services, technologies, experiences, testimonials, projects };

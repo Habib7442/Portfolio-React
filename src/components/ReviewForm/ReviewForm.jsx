@@ -74,17 +74,14 @@ const ReviewForm = (props) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(url);
     alert("Url Copied");
-    setUrl("")
+    setUrl("");
   };
 
   return (
-    <div className="reviewForm container-fluid">
-      <Link className="anchor" to="/">
-        <ArrowCircleLeftIcon /> Home Page
-      </Link>
+    <div className="reviewForm container-fluid bg-dark">
       <h1 className="reviewTitle">Give Your Valuable Review</h1>
-      <div className="uploadImg">
-        <span className="mx-3">Upload Your Image</span>
+      <div className="uploadImg text-white">
+        <span className="mx-3 text-white">Upload Your Image</span>
         <input
           type="file"
           onChange={(event) => {
@@ -100,9 +97,14 @@ const ReviewForm = (props) => {
           <b>Image Url</b> : <br />
           <br />
           <div className="url">
-            <input type="text" className="w-100" value={url} onChange={(event) => {
-              setUrl(event.target.value)
-            }} />
+            <input
+              type="text"
+              className="w-100"
+              value={url}
+              onChange={(event) => {
+                setUrl(event.target.value);
+              }}
+            />
           </div>
         </span>
         <button onClick={handleCopy} className="btn btn-warning my-2">
@@ -124,6 +126,7 @@ const ReviewForm = (props) => {
           style={{ color: "white", marginTop: "10px" }}
         />
         <TextField
+          className="text"
           id="standard-basic"
           label="Email"
           variant="standard"
@@ -137,6 +140,7 @@ const ReviewForm = (props) => {
           required
         />
         <TextField
+          className="text"
           id="standard-basic"
           label="Review"
           variant="standard"
@@ -149,6 +153,7 @@ const ReviewForm = (props) => {
           required
         />
         <TextField
+          className="text"
           id="standard-basic"
           label="Stars (Give ratings out of 5)"
           variant="standard"
@@ -163,6 +168,7 @@ const ReviewForm = (props) => {
           required
         />
         <TextField
+          className="text"
           id="standard-basic"
           label="Image Url (Paste Image Url from above)"
           variant="standard"

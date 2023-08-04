@@ -1,25 +1,29 @@
-import React from "react";
-import Carousels from "../../components/Carousel/Carousel";
-import SwipeableTemporaryDrawer from "../../components/Drawer/Drawer";
-import Projects from "../../components/Projects/Projects";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import Review from "../Review/Review";
+import { Suspense, lazy } from "react";
+const Carousels = lazy(() => import("../../components/Carousel/Carousel"));
+const SwipeableTemporaryDrawer = lazy(() =>
+  import("../../components/Drawer/Drawer")
+);
+const Projects = lazy(() => import("../../components/Projects/Projects"));
+const Sidebar = lazy(() => import("../../components/Sidebar/Sidebar"));
+const Review = lazy(() => import("../Review/Review"));
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import "./Home.scss";
 import { Link } from "react-router-dom";
 import Git from "../../components/Github/Git";
 import { useEffect, useState } from "react";
-import WorkExperience from "../../components/WorkExperience/WorkExperience";
-import Tech from "../../components/Tech/Tech";
-import Contact from "../Contact/Contact";
-import mobImg from "../../assets/mobile.png";
-import laptopImg from "../../assets/laptop.png";
-import gitImg from "../../assets/github.png";
-import MapChart from "../../components/Maps/Map";
+const WorkExperience = lazy(() => import( "../../components/WorkExperience/WorkExperience"));
+const Tech = lazy(() => import("../../components/Tech/Tech")) ;
+const Contact = lazy(() => import( "../Contact/Contact"));
+import mobImg from "../../assets/mobile.png" ;
+import laptopImg from "../../assets/laptop.png" ;
+import gitImg from "../../assets/github.png" ;
+const MapChart = lazy(() => import("../../components/Maps/Map")) ;
 import { motion } from "framer-motion";
 import { fadeIn, slideIn } from "../../utils/motion";
-import EarthCanvas from "../../components/canvas/Earth";
-import StarsCanvas from "../../components/canvas/Stars";
+const Earth = lazy(() => import("../../components/canvas/Earth")) ;
+const CanvasLoader = lazy(() => import("../../components/Loader")) ;
+import { OrbitControls, Preload } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 
 const Home = () => {
   return (
@@ -40,17 +44,44 @@ const Home = () => {
             )}
           </div> */}
           <section className="first-section">
-            <main id="swup" className="first-section-main transition-fade relative z-0">
+            <main
+              id="swup"
+              className="first-section-main transition-fade relative z-0"
+            >
               <h1 className="heading">Hi, I'm Habib</h1>
               <p className="sub_heading">Front End Developer</p>
             </main>
             <motion.div
               variants={slideIn("right", "tween", 0.2, 1)}
-              className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+              className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] hidden sm:block"
             >
-              <EarthCanvas />
+              <Canvas
+                shadows
+                frameloop="demand"
+                dpr={[1, 2]}
+                gl={{ preserveDrawingBuffer: true }}
+                camera={{
+                  fov: 45,
+                  near: 0.1,
+                  far: 200,
+                  position: [-4, 3, 6],
+                }}
+              >
+                <Suspense fallback={<CanvasLoader />}>
+                  <OrbitControls
+                    autoRotate
+                    enableZoom={false}
+                    maxPolarAngle={Math.PI / 2}
+                    minPolarAngle={Math.PI / 2}
+                  />
+                  <Earth />
+
+                  <Preload all />
+                </Suspense>
+              </Canvas>
+              {/* <EarthCanvas /> */}
             </motion.div>
-            <StarsCanvas />
+            {/* <StarsCanvas /> */}
           </section>
           <section className="second-section">
             <h2 className="proTitle">My Projects</h2>
@@ -135,7 +166,7 @@ const Home = () => {
             </div>
           </section>
         </div>
-        <div className="right">
+        <div className=" hidden sm:block">
           <SwipeableTemporaryDrawer />
           <h6 className="drawerTitle">HOME</h6>
         </div>

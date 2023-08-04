@@ -4,54 +4,66 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import "./AllProject.scss";
 import projectData from "../../ProjectData";
 
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import { motion } from "framer-motion";
+import { projects } from "../../constants";
+import { textVariant } from "../../utils/motion";
+
+import "react-vertical-timeline-component/style.min.css";
+
+const ProjectCard = ({ project }) => (
+  <VerticalTimelineElement
+    contentStyle={{ background: "#1d1836", color: "#fff" }}
+    contentArrowStyle={{ borderRight: "7px solid #232631" }}
+    date={project.date}
+    iconStyle={{ background: project.iconBg }}
+    icon={
+      <div className="icon-div ">
+        <img src={project.icon} alt={project.title} className="icons" />
+      </div>
+    }
+  >
+    <div>
+      <h4 className="text-white text-[24px] font-bold">{project.title}</h4>
+      <p
+        className="text-secondary text-[16px] font-semibold"
+        style={{ margin: 0 }}
+      >
+        {project.title}
+      </p>
+    </div>
+    <ul className="mt-3 list-disc ml-5 space-y-2">
+      {project.points.map((point, index) => (
+        <li
+          key={`experience-point-${index}`}
+          className="text-white text-base pl-1 mb-2"
+        >
+          {point}
+        </li>
+      ))}
+    </ul>
+  </VerticalTimelineElement>
+);
+
 const AllProject = () => {
   return (
     <div className="allProject">
-      <div className="left">
+      <div className="left hidden">
         <Sidebar />
       </div>
       <div className="center">
-        <main className="page-content">
-          {projectData.map((data) => (
-            <div key={data.id} className="cards">
-              <div className="content">
-                <h2 className="title">{data.title}</h2>
-                <p className="copy">
-                  {data.desc}
-                </p>
-                <a href={data.github} target="_blank"><button className="btn">GitHub</button></a>
-                <a href={data.netlify} target="_blank"><button className="btn">Netlify</button></a>
-              </div>
-            </div>
-          ))}
-          {/* <div className="cards">
-            <div className="content">
-              <h2 className="title">To The Beach</h2>
-              <p className="copy">
-                Plan your next beach trip with these fabulous destinations
-              </p>
-              <button className="btn">View Trips</button>
-            </div>
+          <div className="verticalTimeLine mt-5">
+            <VerticalTimeline>
+              {projects.map((project, index) => (
+                <ProjectCard key={index} project={project} />
+              ))}
+            </VerticalTimeline>
           </div>
-          <div className="cards">
-            <div className="content">
-              <h2 className="title">Desert Destinations</h2>
-              <p className="copy">It's the desert you've always dreamed of</p>
-              <button className="btn">Book Now</button>
-            </div>
-          </div>
-          <div className="cards">
-            <div className="content">
-              <h2 className="title">Explore The Galaxy</h2>
-              <p className="copy">
-                Seriously, straight up, just blast off into outer space today
-              </p>
-              <button className="btn">Book Now</button>
-            </div>
-          </div> */}
-        </main>
       </div>
-      <div className="right">
+      <div className="right hidden sm:block">
         <SwipeableTemporaryDrawer />
       </div>
     </div>

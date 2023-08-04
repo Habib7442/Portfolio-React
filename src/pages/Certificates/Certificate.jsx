@@ -21,7 +21,7 @@ const Certificate = () => {
             
           </main>
         </div>
-        <div className="right">
+        <div className="right hidden sm:block">
           <SwipeableTemporaryDrawer />
         </div>
       </div>

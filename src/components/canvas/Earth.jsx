@@ -1,44 +1,30 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import React, { useRef } from 'react';
+import { useGLTF, useAnimations } from '@react-three/drei';
 
-import CanvasLoader from "../Loader";
-
-const Earth = () => {
-  const earth = useGLTF("./planet/scene.gltf");
+export default function Model(props) {
+  const group = useRef();
+  const { nodes, materials, animations } = useGLTF('/earth-transformed.glb');
+  const { actions } = useAnimations(animations, group);
+  const scaleFactor = 3; // Increase the scale factor as desired
 
   return (
-    <primitive object={earth.scene} scale={3} position-y={0} rotation-y={0} />
+    <group ref={group} {...props} dispose={null} scale={[scaleFactor, scaleFactor, scaleFactor]}>
+      <group name="Sketchfab_Scene">
+        <group name="Sketchfab_model" rotation={[-1.54, -0.06, 0]}>
+          <group name="root">
+            <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
+              <group name="Clouds_1">
+                <mesh name="Object_4" geometry={nodes.Object_4.geometry} material={materials.Clouds} />
+              </group>
+              <group name="Planet_2">
+                <mesh name="Object_6" geometry={nodes.Object_6.geometry} material={materials.Planet} />
+              </group>
+            </group>
+          </group>
+        </group>
+      </group>
+    </group>
   );
-};
+}
 
-const EarthCanvas = () => {
-  return (
-    <Canvas
-      shadows
-      frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
-      camera={{
-        fov: 45,
-        near: 0.1,
-        far: 200,
-        position: [-4, 3, 6],
-      }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          autoRotate
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
-        <Earth />
-
-        <Preload all />
-      </Suspense>
-    </Canvas>
-  );
-};
-
-export default EarthCanvas;
+useGLTF.preload('/earth-transformed.glb');

@@ -20,17 +20,18 @@
       transparent 60%,
       rgba(0, 0, 0, 0.8)
     ),
-    url("../../assets/netflixcard.jpg"), no-repeat;
-  background-size: cover;
+    url("../../assets/quickPicksCard.jpg"), no-repeat;
+    background-size: cover;
 }
 
 .swiper-slide:nth-child(2n) {
   background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.8) 0,
-    transparent 60%,
-    rgba(0, 0, 0, 0.8)
-  ),url("../../assets/youtube.jpg"), no-repeat;
+      0deg,
+      rgba(0, 0, 0, 0.8) 0,
+      transparent 60%,
+      rgba(0, 0, 0, 0.8)
+    ),
+    url("../../assets/netflixcard.jpg"), no-repeat;
   background-size: cover;
 }
 
@@ -40,7 +41,7 @@
     rgba(0, 0, 0, 0.8) 0,
     transparent 60%,
     rgba(0, 0, 0, 0.8)
-  ),url("../../assets/blogcard.jpg"), no-repeat;
+  ),url("../../assets/youtube.jpg"), no-repeat;
   background-size: cover;
 }
 
@@ -50,9 +51,19 @@
     rgba(0, 0, 0, 0.8) 0,
     transparent 60%,
     rgba(0, 0, 0, 0.8)
-  ),url("../../assets/myntra.jpg"), no-repeat;
+  ),url("../../assets/blogcard.jpg"), no-repeat;
   background-size: cover;
 }
+
+// .swiper-slide:nth-child(4n) {
+//   background: linear-gradient(
+//     0deg,
+//     rgba(0, 0, 0, 0.8) 0,
+//     transparent 60%,
+//     rgba(0, 0, 0, 0.8)
+//   ),url("../../assets/myntra.jpg"), no-repeat;
+//   background-size: cover;
+// }
 
 .swiper-slide:nth-child(5n) {
   background-color: rgb(118, 163, 12);
