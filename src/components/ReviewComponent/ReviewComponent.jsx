@@ -1,4 +1,3 @@
-import React from "react";
 import { Card } from "react-bootstrap";
 import "./ReviewComponent.scss";
 import Button from "react-bootstrap/Button";
@@ -62,6 +61,7 @@ const ReviewComponent = (props) => {
       </Modal>
       <div className="reviewComponent">
         <a id="card" onClick={modalHandler}>
+          
           <Card className="cardBack" style={{background: "none", color: "whitesmoke"}}>
             <Card.Body className="cardBody">
               {props.review.length > 30 && (

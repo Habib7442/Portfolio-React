@@ -172,36 +172,36 @@ const Home = () => {
         </div>
       </div>
       <div className="footer">
-        <div class="container">
-          <footer class="py-3">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item">
-                <Link to="/" class="nav-link px-2 text-muted">
+        <div className="container">
+          <footer className="py-3">
+            <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+              <li className="nav-item">
+                <Link to="/" className="nav-link px-2 text-muted">
                   Home
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link to="/all-project" class="nav-link px-2 text-muted">
                   Projects
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link to="/contact-form" class="nav-link px-2 text-muted">
                   Contact
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link to="/review-form" class="nav-link px-2 text-muted">
                   Review
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link to="/certificate" class="nav-link px-2 text-muted">
                   Achievement
                 </Link>
               </li>
             </ul>
-            <p class="text-center text-muted">© 2022 Habib</p>
+            <p className="text-center text-muted">© 2022 Habib</p>
           </footer>
         </div>
       </div>

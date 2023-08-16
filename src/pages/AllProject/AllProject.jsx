@@ -1,70 +1,112 @@
-import React from "react";
-import SwipeableTemporaryDrawer from "../../components/Drawer/Drawer";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import "./AllProject.scss";
-import projectData from "../../ProjectData";
-
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import { motion } from "framer-motion";
-import { projects } from "../../constants";
-import { textVariant } from "../../utils/motion";
-
-import "react-vertical-timeline-component/style.min.css";
-
-const ProjectCard = ({ project }) => (
-  <VerticalTimelineElement
-    contentStyle={{ background: "#1d1836", color: "#fff" }}
-    contentArrowStyle={{ borderRight: "7px solid #232631" }}
-    date={project.date}
-    iconStyle={{ background: project.iconBg }}
-    icon={
-      <div className="icon-div ">
-        <img src={project.icon} alt={project.title} className="icons" />
-      </div>
-    }
-  >
-    <div>
-      <h4 className="text-white text-[24px] font-bold">{project.title}</h4>
-      <p
-        className="text-secondary text-[16px] font-semibold"
-        style={{ margin: 0 }}
-      >
-        {project.title}
-      </p>
-    </div>
-    <ul className="mt-3 list-disc ml-5 space-y-2">
-      {project.points.map((point, index) => (
-        <li
-          key={`experience-point-${index}`}
-          className="text-white text-base pl-1 mb-2"
-        >
-          {point}
-        </li>
-      ))}
-    </ul>
-  </VerticalTimelineElement>
-);
+  faGithub,
+  faLinkedin,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import projectData from "../../ProjectData"; // Assuming you have your project data here
 
 const AllProject = () => {
+  const [projectModals, setProjectModals] = useState(
+    Array(projectData.length).fill(false)
+  );
+
+  const openModal = (index) => {
+    const updatedModals = [...projectModals];
+    updatedModals[index] = true;
+    setProjectModals(updatedModals);
+  };
+
+  const closeModal = (index) => {
+    const updatedModals = [...projectModals];
+    updatedModals[index] = false;
+    setProjectModals(updatedModals);
+  };
+
   return (
-    <div className="allProject">
-      <div className="left hidden">
-        <Sidebar />
-      </div>
-      <div className="center">
-          <div className="verticalTimeLine mt-5">
-            <VerticalTimeline>
-              {projects.map((project, index) => (
-                <ProjectCard key={index} project={project} />
-              ))}
-            </VerticalTimeline>
+    <div className="allProject bg-black">
+      <a
+        type="button"
+        href="/"
+        className="hidden lg:inline-block bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg mt-2"
+        style={{ textDecoration: "none" }}
+      >
+        Home
+      </a>
+      <div className="center flex flex-wrap justify-center gap-5">
+        {projectData.map((project, index) => (
+          <div
+            key={project.id}
+            className="bg-white rounded-lg shadow-lg overflow-hidden mt-4 mb-5"
+            style={{ maxWidth: "22rem" }}
+          >
+            <img
+              src={project.img}
+              alt={project.title}
+              className="w-full h-auto"
+            />
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+              <p className="text-gray-700 mb-2 text-justify">
+                {project.desc[0].slice(0, 50)}
+                <a
+                  href="#"
+                  onClick={() => openModal(index)}
+                  className="text-blue-500 hover:underline ml-2"
+                >
+                  Read more
+                </a>
+              </p>
+              <div className="flex items-center space-x-2">
+                <a
+                  href={project.github}
+                  className="text-blue-500 hover:underline"
+                >
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+                <a
+                  href={project.linkedin}
+                  className="text-blue-500 hover:underline"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>
+                <a href="#" className="text-blue-500 hover:underline">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+                <a
+                  type="button"
+                  style={{ textDecoration: "none" }}
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-2 rounded-lg shadow-md transition duration-300 ease-in-out"
+                  href={project.netlify}
+                >
+                  View Live
+                </a>
+              </div>
+            </div>
+
+            {projectModals[index] && (
+              <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <h3 className="text-xl font-semibold mb-2">
+                    {project.title}
+                  </h3>
+                  <ul className="list-disc list-inside text-gray-700 mb-4">
+                    {project.desc.map((point, pointIndex) => (
+                      <li key={pointIndex}>{point}</li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={() => closeModal(index)}
+                    className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
-      </div>
-      <div className="right hidden sm:block">
-        <SwipeableTemporaryDrawer />
+        ))}
       </div>
     </div>
   );
