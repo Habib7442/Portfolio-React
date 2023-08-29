@@ -26,23 +26,37 @@ import { OrbitControls, Preload } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 
 const Home = () => {
+  const [backgroundColor, setBackgroundColor] = useState('#000000');
+  const handleColorChange = (color) => {
+    setBackgroundColor(color);
+  }
   return (
     <>
-      <div className="home bg-dark">
+      <div className="home" style={{backgroundColor: backgroundColor}}>
         <div className="left">
           <Sidebar />
         </div>
         <div className="center">
-          {/* <div className="profile-container">
-            {profile && (
-              <div className="profile-section">
-                <ProfileCard />
-                <button onClick={handleClick}>
-                  <CloseIcon />
-                </button>
-              </div>
-            )}
-          </div> */}
+        <div className="mt-4 space-x-2 flex justify-center items-center">
+        <button
+          className="text-white px-3 py-1 rounded bg-teal-400"
+          onClick={() => handleColorChange('#008080')}
+        >
+          Teal
+        </button>
+        <button
+          className="text-white px-3 py-1 rounded bg-orange-500"
+          onClick={() => handleColorChange('#FFA500')}
+        >
+          Orange
+        </button>
+        <button
+          className="bg-pink-400 text-white px-3 py-1 rounded"
+          onClick={() => handleColorChange('#FF69B4')}
+        >
+          Pink
+        </button>
+      </div>
           <section className="first-section">
             <main
               id="swup"
@@ -130,7 +144,7 @@ const Home = () => {
               <Git />
             </div>
             <div className="gitImgDiv">
-              <a href="https://github.com/Habib7442" target="_blank">
+              <a href="https://github.com/Habib7442">
                 <img className="gitImg" src={gitImg} alt="" />
               </a>
             </div>
@@ -168,7 +182,6 @@ const Home = () => {
         </div>
         <div className=" hidden sm:block">
           <SwipeableTemporaryDrawer />
-          <h6 className="drawerTitle">HOME</h6>
         </div>
       </div>
       <div className="footer">
